@@ -1,0 +1,27 @@
+# Secrets – never upload these (the repository is public)
+.env
+.env.*
+wp-config.php
+*.key
+*.pem
+auth.json
+
+# Dependencies / build output
+node_modules/
+vendor/
+dist/
+
+# Operating system junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs and backups
+*.log
+*.bak
+*.zip

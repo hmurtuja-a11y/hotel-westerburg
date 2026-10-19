@@ -1,0 +1,11 @@
+# Store text files with LF line endings so the Linux web server gets clean files.
+* text=auto eol=lf
+
+# Binary files – never touch line endings.
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.mo binary
+*.woff binary
+*.woff2 binary
