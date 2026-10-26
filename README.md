@@ -11,6 +11,7 @@ hotel-westerburg/
 ├── includes/                 PHP   Server-side logic.
 │   ├── hooks.php             PHP   General WordPress actions/filters. Add custom behaviour here.
 │   ├── assets.php            PHP   Tells WordPress to load the CSS and JS files below.
+│   ├── seo.php               PHP   Hides listed pages from Google (noindex, sitemap, robots.txt).
 │   └── index.php             PHP   Empty guard file (stops folder browsing). Don't edit.
 ├── assets/                         Files sent to the visitor's browser.
 │   ├── css/frontend.css      CSS   Custom styles for the site (overrides theme / Elementor).
@@ -30,6 +31,7 @@ Every `index.php` that only says "Silence is golden" is a WordPress security con
 | Change how something looks         | `assets/css/frontend.css`      |
 | Add an interactive browser effect  | `assets/js/frontend.js`        |
 | Change WordPress behaviour (PHP)   | `includes/hooks.php`           |
+| Hide a page from Google            | Add its slug in `includes/seo.php` |
 | Add a large new feature            | New file in `includes/`, then `require_once` it in `hotel-westerburg.php` |
 
 ## Release workflow
