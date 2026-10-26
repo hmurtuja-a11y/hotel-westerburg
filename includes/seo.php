@@ -16,9 +16,11 @@ defined( 'ABSPATH' ) || exit;
  *
  * feedback        Internal staff feedback form, not for guests.
  * neujahrspackage Shows Halloween content by mistake; remove from this list once the New Year content is fixed.
+ * sommerspas-abkuhlung-package  Summer package, off-season with no card on Unsere Packages. Remove from this
+ *                 list next summer when its card is added back (also set it to "Index" in Rank Math).
  */
 function hotel_westerburg_noindex_slugs() {
-	return array( 'feedback', 'neujahrspackage' );
+	return array( 'feedback', 'neujahrspackage', 'sommerspas-abkuhlung-package' );
 }
 
 /**
