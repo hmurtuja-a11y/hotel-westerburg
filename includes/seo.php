@@ -44,7 +44,9 @@ add_filter(
 add_filter(
 	'rank_math/sitemap/entry',
 	function ( $url, $type, $post ) {
-		if ( 'post' === $type && $post instanceof WP_Post && 'page' === $post->post_type
+		// Rank Math passes a plain row object (not WP_Post), so only rely on its fields.
+		if ( 'post' === $type && is_object( $post ) && isset( $post->post_name, $post->post_type )
+			&& 'page' === $post->post_type
 			&& in_array( $post->post_name, hotel_westerburg_noindex_slugs(), true ) ) {
 			return false;
 		}
