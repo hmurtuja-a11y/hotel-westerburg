@@ -9,3 +9,6 @@
 *.mo binary
 *.woff binary
 *.woff2 binary
+
+# Documentation only: keep it out of the plugin ZIP that Deployer for Git installs.
+docs/ export-ignore

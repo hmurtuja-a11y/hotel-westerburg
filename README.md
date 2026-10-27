@@ -18,6 +18,7 @@ hotel-westerburg/
 │   ├── css/frontend.css      CSS   Custom styles for the site (overrides theme / Elementor).
 │   └── js/frontend.js        JS    Custom browser-side scripts.
 ├── languages/                      Translation files (.po / .mo) for German/English.
+├── docs/content-changes.md   Docs  Record of every change made in Elementor (not deployed).
 ├── README.md                 Docs  This file. Not used by WordPress.
 ├── .gitignore                Git   Files git must never upload (passwords, OS junk, editor files).
 └── .gitattributes            Git   Keeps line endings consistent between Windows and the server.
