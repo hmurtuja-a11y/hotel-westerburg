@@ -24,3 +24,6 @@ Settings changed outside Elementor:
 | Date | Where | Change | Why |
 |---|---|---|---|
 | 2026-10-26 | Rank Math (Pages list, bulk action) | `/feedback/`, `/neujahrspackage/`, `/sommerspas-abkuhlung-package/` set to noindex | Same pages as `includes/seo.php`; removes them from the Rank Math sitemap |
+| 2026-10-28 | WordPress Pages (REST, block editor) | New pages `/danke-kontakt/` (4263), `/danke-arrangement/` (4264), `/danke-blaue-lagune/` (4265): heading + one line, published | Thank-you pages for the enquiry forms; they count conversions for the new Google Ads campaigns. Hidden from Google by `includes/seo.php` (v1.3.0) |
+| 2026-10-28 | Google Tag Manager GTM-N9PDK9SM | Version 40 "WBG NEW 1 - new campaign conversions" published: 8 variables, 5 triggers, 9 tags, all named `WBG NEW`; no existing item changed | Own conversions for the new campaigns. Undo: publish version 39 |
+| 2026-10-28 | Google Ads 705-425-4472 | 5 conversion actions `WBG NEW \| ...` (Secondary) and custom goal "WBG NEW - Buchungen & Anfragen" (6459683625), not assigned to any campaign | Primary goal for the new campaigns only |
