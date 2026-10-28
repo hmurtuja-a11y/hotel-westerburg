@@ -18,9 +18,18 @@ defined( 'ABSPATH' ) || exit;
  * neujahrspackage Shows Halloween content by mistake; remove from this list once the New Year content is fixed.
  * sommerspas-abkuhlung-package  Summer package, off-season with no card on Unsere Packages. Remove from this
  *                 list next summer when its card is added back (also set it to "Index" in Rank Math).
+ * danke-kontakt, danke-arrangement, danke-blaue-lagune  Thank-you pages after the enquiry forms; they only
+ *                 count conversions for the new Google Ads campaigns and are not for search.
  */
 function hotel_westerburg_noindex_slugs() {
-	return array( 'feedback', 'neujahrspackage', 'sommerspas-abkuhlung-package' );
+	return array(
+		'feedback',
+		'neujahrspackage',
+		'sommerspas-abkuhlung-package',
+		'danke-kontakt',
+		'danke-arrangement',
+		'danke-blaue-lagune',
+	);
 }
 
 /**
