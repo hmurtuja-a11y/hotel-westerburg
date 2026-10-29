@@ -16,6 +16,7 @@ hotel-westerburg/
 │   └── index.php             PHP   Empty guard file (stops folder browsing). Don't edit.
 ├── assets/                         Files sent to the visitor's browser.
 │   ├── css/frontend.css      CSS   Custom styles for the site (overrides theme / Elementor).
+│   ├── css/booking-bar.css   CSS   Booking bar in the homepage hero (loaded on Home only).
 │   └── js/frontend.js        JS    Custom browser-side scripts.
 ├── languages/                      Translation files (.po / .mo) for German/English.
 ├── docs/content-changes.md   Docs  Record of every change made in Elementor (not deployed).

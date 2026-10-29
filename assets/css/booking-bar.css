@@ -1,0 +1,157 @@
+/* Booking bar in the homepage hero, Planet WBE search mask restyled (29.09.2026).
+   Planet's markup, IDs and bind* classes stay untouched, only layout and look change here. */
+.hero-booking { position: relative; overflow: visible !important; }
+.hero-booking > .e-con-inner { position: relative; height: 100%; overflow: visible !important; padding-bottom: 0 !important; gap: 0 !important; }
+.hero-booking .booking-mask { position: absolute !important; left: 0; right: 0; bottom: 48px; top: auto; margin: 0 !important; padding: 0 !important; z-index: 20 !important; }
+
+.wb-bm {
+  --bm-navy: #081F2C; --bm-sand: #C7B49A; --bm-sand-dark: #7A6A55; --bm-shade: #F6F2EC; --bm-line: #E4DBCF;
+  width: min(1160px, calc(100% - 40px)); margin: 0 auto;
+  background: #fff; box-shadow: 0 20px 50px rgba(8, 31, 44, .22);
+  font-family: "Alegreya Sans", sans-serif;
+}
+.wb-bm .besearchmask, .wb-bm .searchmask-wrapper, .wb-bm .searchmask-container,
+.wb-bm .sm-fields, .wb-bm .besearchmask .container { position: static !important; margin: 0 !important; padding: 0 !important; max-width: none !important; width: 100% !important; background: transparent !important; }
+
+.wb-bm .searchmask-container { position: relative !important; }
+
+/* Grid: four fields plus button */
+.wb-bm .sm-fields > .sm-row:first-child { display: grid !important; grid-template-columns: 1fr auto; margin: 0 !important; }
+.wb-bm .sm-fields > .sm-row:first-child > .sm-col:first-child > .sm-row { display: grid !important; grid-template-columns: 1fr 1fr 1.45fr 1fr; margin: 0 !important; }
+.wb-bm .besearchmask .sm-col { width: auto !important; max-width: none !important; flex: none !important; padding: 0 !important; margin: 0 !important; position: relative; }
+.wb-bm .sm-fields > .sm-row:first-child > .sm-col:first-child > .sm-row > .sm-col {
+  padding: 18px 26px 16px !important; border-right: 1px solid var(--bm-line); cursor: pointer; transition: background-color .15s ease;
+}
+.wb-bm .sm-fields > .sm-row:first-child > .sm-col:first-child > .sm-row > .sm-col:hover { background: var(--bm-shade); }
+.wb-bm .sm-row.-bottom { display: none !important; }
+
+/* Labels and values */
+.wb-bm .besearchmask .sm-control-label.-main {
+  display: block; margin: 0 0 4px !important; padding: 0 !important; height: auto !important; line-height: 1.2 !important;
+  font: 500 12px/1.2 "Alegreya Sans", sans-serif !important; letter-spacing: .14em; text-transform: uppercase; color: var(--bm-sand-dark) !important;
+}
+.wb-bm .besearchmask .sm-input-wrap { border: 0 !important; background: none !important; }
+.wb-bm .besearchmask .sm-form-control,
+.wb-bm .besearchmask .occupancy-summary .occupancy-summary-texts {
+  width: 100% !important; height: 30px !important; padding: 0 !important; margin: 0 !important; border: 0 !important; outline: 0 !important;
+  background: transparent !important; box-shadow: none !important; cursor: pointer;
+  font: 400 20px/30px "Playfair Display", serif !important; color: var(--bm-navy) !important;
+}
+.wb-bm .besearchmask .occupancy-summary .occupancy-summary-texts { padding-right: 28px !important; text-overflow: ellipsis; }
+.wb-bm .besearchmask .occupancy-summary.active .occupancy-summary-texts { outline: 0 !important; }
+.wb-bm .besearchmask .occupancy-summary .occupancy-summary-texts::after { right: 0; opacity: .7; }
+.wb-bm .besearchmask #SMJSON-combinedCode { font: 400 18px/30px "Alegreya Sans", sans-serif !important; text-transform: uppercase; letter-spacing: .06em; cursor: text; }
+.wb-bm .besearchmask #SMJSON-combinedCode::placeholder { color: #9A9A9A; text-transform: none; letter-spacing: 0; opacity: 1; }
+.wb-bm #smPromotionsContainer { border-right: 0 !important; cursor: text !important; }
+
+/* Button */
+.wb-bm .besearchmask .sm-book-wrap { height: 100%; margin: 0 !important; padding: 0 !important; }
+.wb-bm .besearchmask .sm-book-button {
+  display: flex !important; align-items: center; justify-content: center; height: 100% !important; min-height: 84px; width: auto !important;
+  padding: 0 44px !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important;
+  background: var(--bm-navy) !important; color: #fff !important; cursor: pointer; white-space: nowrap;
+  font: 500 16px/1 "Alegreya Sans", sans-serif !important; letter-spacing: .14em; text-transform: uppercase;
+  transition: background-color .2s ease;
+}
+.wb-bm .besearchmask .sm-book-button:hover { background: #1C3A4B !important; }
+
+/* Occupancy dropdown */
+.wb-bm .besearchmask .occupancy-dropdown-wrap { position: static; }
+.wb-bm .besearchmask .occupancy-dropdown {
+  position: absolute !important; top: calc(100% + 1px) !important; left: 0 !important; float: none !important;
+  width: auto !important; right: 0 !important; padding: 24px !important; background: #fff !important; border: 0 !important;
+  box-shadow: 0 20px 50px rgba(8, 31, 44, .22) !important; z-index: 30 !important; cursor: default;
+}
+.wb-bm .besearchmask .occupancy-dropdown .sm-control-label,
+.wb-bm .besearchmask .occupancy-dropdown label {
+  display: block; margin: 0 0 8px !important; font: 500 12px/1.2 "Alegreya Sans", sans-serif !important;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--bm-sand-dark) !important;
+}
+.wb-bm .besearchmask .occupancy-dropdown select.sm-form-control {
+  height: 44px !important; line-height: 44px !important; padding: 0 12px !important; border: 1px solid var(--bm-line) !important;
+  font: 400 17px/44px "Alegreya Sans", sans-serif !important; cursor: pointer; margin-bottom: 16px !important; padding-right: 40px !important;
+  -webkit-appearance: none !important; appearance: none !important;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23081F2C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center !important;
+}
+.wb-bm .besearchmask .occupancy-room-header { border-top: 1px solid var(--bm-line); padding-top: 16px; margin-bottom: 4px; }
+.wb-bm .besearchmask .occupancy-room-header label { color: var(--bm-navy) !important; }
+.wb-bm .besearchmask .sm-room-details-content > .row { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin: 0 !important; }
+.wb-bm .besearchmask .sm-room-details-content .sm-col { padding: 0 !important; }
+.wb-bm .besearchmask .sm-child-ages-container { grid-column: 1 / -1; }
+.wb-bm .besearchmask .sm-child-ages-container .row { display: grid !important; grid-template-columns: 1fr; gap: 12px; margin: 0 !important; }
+.wb-bm .besearchmask .child-age-item .select-wrapper { display: block !important; width: 100% !important; float: none !important; }
+.wb-bm .besearchmask .sm-child-ages-container .child-age-item { padding: 0 !important; width: auto !important; max-width: none !important; }
+.wb-bm .besearchmask .child-age-item label { margin: 0 0 6px !important; font: 400 14px/1.2 "Alegreya Sans", sans-serif !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--bm-navy) !important; }
+.wb-bm .besearchmask .child-age-item select.sm-form-control { margin-bottom: 0 !important; width: 100% !important; }
+.wb-bm .besearchmask .sm-child-ages-container:not(:has(select)) { display: none !important; }
+.wb-bm .besearchmask .plus-minus-selector {
+  display: grid !important; grid-template-columns: 40px 1fr 40px; height: 44px !important; border: 1px solid var(--bm-line); background: #fff !important;
+}
+.wb-bm .besearchmask .plus-minus-selector > * { width: auto !important; float: none !important; }
+.wb-bm .besearchmask .plus-minus-selector .p-m-selector-decrement,
+.wb-bm .besearchmask .plus-minus-selector .p-m-selector-increment {
+  height: 42px !important; line-height: 42px !important; font: 400 22px/42px "Alegreya Sans", sans-serif !important; color: var(--bm-navy) !important;
+  background: var(--bm-shade) !important; user-select: none;
+}
+.wb-bm .besearchmask .plus-minus-selector .p-m-selector-value { font: 400 18px/42px "Alegreya Sans", sans-serif !important; color: var(--bm-navy); text-align: center; }
+
+/* Calendar (bootstrap-datepicker inside the mask) */
+.wb-bm .besearchmask .datepicker.dropdown-menu {
+  padding: 18px !important; margin-top: 1px !important; margin-left: -26px !important; border: 0 !important; border-radius: 0 !important; background: #fff !important;
+  box-shadow: 0 20px 50px rgba(8, 31, 44, .22) !important; z-index: 40 !important; font-family: "Alegreya Sans", sans-serif !important;
+}
+.wb-bm .besearchmask .datepicker::before, .wb-bm .besearchmask .datepicker::after { display: none !important; }
+.wb-bm .besearchmask .datepicker table { border: 0 !important; border-collapse: separate !important; border-spacing: 2px !important; margin: 0 !important; }
+.wb-bm .besearchmask .datepicker th, .wb-bm .besearchmask .datepicker td {
+  border: 0 !important; border-radius: 0 !important; background: none !important; width: 42px !important; height: 40px !important; padding: 0 !important;
+  font: 400 16px/40px "Alegreya Sans", sans-serif !important; color: var(--bm-navy) !important; text-align: center; box-shadow: none !important;
+}
+.wb-bm .besearchmask .datepicker .datepicker-title { font: 500 12px/1.2 "Alegreya Sans", sans-serif !important; letter-spacing: .14em; text-transform: uppercase; color: var(--bm-sand-dark) !important; height: auto !important; padding-bottom: 6px !important; }
+.wb-bm .besearchmask .datepicker .datepicker-switch { font: 400 19px/40px "Playfair Display", serif !important; color: var(--bm-navy) !important; }
+.wb-bm .besearchmask .datepicker th.prev, .wb-bm .besearchmask .datepicker th.next { font-size: 20px !important; cursor: pointer; }
+.wb-bm .besearchmask .datepicker th.prev:hover, .wb-bm .besearchmask .datepicker th.next:hover { background: var(--bm-shade) !important; }
+.wb-bm .besearchmask .datepicker th.dow { font-size: 12px !important; letter-spacing: .1em; text-transform: uppercase; color: var(--bm-sand-dark) !important; height: 30px !important; line-height: 30px !important; }
+.wb-bm .besearchmask .datepicker td.day span { display: block; font-weight: 400 !important; }
+.wb-bm .besearchmask .datepicker td.day:not(.disabled):hover { background: var(--bm-shade) !important; cursor: pointer; }
+.wb-bm .besearchmask .datepicker td.day.disabled, .wb-bm .besearchmask .datepicker td.day.old, .wb-bm .besearchmask .datepicker td.day.new { color: #C4C4C4 !important; }
+.wb-bm .besearchmask .datepicker td.day.today:not(.active) { box-shadow: inset 0 -2px 0 var(--bm-sand) !important; }
+.wb-bm .besearchmask .datepicker td.day.range { background: var(--bm-shade) !important; }
+.wb-bm .besearchmask .datepicker td.day.active, .wb-bm .besearchmask .datepicker td.day.active:hover,
+.wb-bm .besearchmask .datepicker td.day.selected { background: var(--bm-navy) !important; color: #fff !important; }
+
+/* Tablet and mobile: dates side by side, guests full width, code next to the button */
+@media (max-width: 1024px) {
+  .hero-booking .booking-mask { bottom: 24px; }
+  .wb-bm { width: min(720px, calc(100% - 24px)); }
+  .wb-bm .sm-fields > .sm-row:first-child { grid-template-columns: 1fr; }
+  .wb-bm .sm-fields > .sm-row:first-child > .sm-col:first-child > .sm-row { grid-template-columns: 1fr 1fr; }
+  .wb-bm .sm-fields > .sm-row:first-child > .sm-col:first-child > .sm-row > .sm-col { padding: 12px 16px 10px !important; border-bottom: 1px solid var(--bm-line); }
+  .wb-bm .sm-fields > .sm-row:first-child > .sm-col:first-child > .sm-row > .sm-col:nth-of-type(2) { border-right: 0; }
+  .wb-bm .sm-fields > .sm-row:first-child > .sm-col:first-child > .sm-row > .sm-col:nth-of-type(3) { grid-column: 1 / -1; border-right: 0; }
+  .wb-bm #smPromotionsContainer { grid-column: 1 / -1; border-bottom: 0 !important; }
+  .wb-bm .besearchmask .sm-form-control,
+  .wb-bm .besearchmask .occupancy-summary .occupancy-summary-texts { font-size: 18px !important; height: 28px !important; line-height: 28px !important; }
+  .wb-bm .besearchmask .sm-book-button { min-height: 54px; width: 100% !important; }
+  .wb-bm .besearchmask .occupancy-dropdown { width: 100% !important; }
+  .wb-bm .besearchmask .datepicker.dropdown-menu { margin-left: -16px !important; }
+}
+@media (max-width: 767px) {
+  .hero-booking .booking-mask { bottom: 12px; }
+  .wb-bm { box-shadow: 0 10px 30px rgba(8, 31, 44, .25); }
+}
+/* Below 576px Planet opens the calendar as a full-screen layer, keep that and only restyle it */
+@media (max-width: 575px) {
+  .hero-booking .booking-mask { z-index: auto !important; } /* no stacking context, so the layer can cover the sticky header */
+  .wb-bm .besearchmask .datepicker.dropdown-menu {
+    margin-left: 0 !important; padding: 24px 16px !important; z-index: 100000 !important; overflow-y: auto; box-shadow: none !important;
+  }
+  .wb-bm .besearchmask .datepicker table { width: 100% !important; }
+  .wb-bm .besearchmask .datepicker th, .wb-bm .besearchmask .datepicker td { width: auto !important; height: 46px !important; line-height: 46px !important; }
+  .wb-bm .besearchmask .datepicker .datepicker-title { display: table-cell !important; font-size: 14px !important; padding-bottom: 12px !important; }
+  .wb-bm .besearchmask .datepicker.dropdown-menu .wb-dp-close { display: flex; }
+}
+.wb-bm .besearchmask .datepicker .wb-dp-close {
+  display: none; position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; align-items: center; justify-content: center;
+  padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--bm-navy); cursor: pointer; z-index: 1;
+}
+.wb-bm .besearchmask .datepicker .wb-dp-close svg { width: 22px; height: 22px; }

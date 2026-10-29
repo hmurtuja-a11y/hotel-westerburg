@@ -25,3 +25,21 @@ add_action(
 		);
 	}
 );
+
+// Booking bar on the homepage hero (Planet WBE search mask). The CSS used to sit inline in the
+// Elementor HTML widget 7bd9229 on Home; it is printed in the footer so it keeps the same place
+// in the cascade (after Elementor's CSS) as the inline block had.
+add_action(
+	'wp_footer',
+	function () {
+		if ( is_front_page() ) {
+			wp_enqueue_style(
+				'hotel-westerburg-booking-bar',
+				HOTEL_WESTERBURG_URL . 'assets/css/booking-bar.css',
+				array(),
+				HOTEL_WESTERBURG_VERSION
+			);
+		}
+	},
+	1
+);
