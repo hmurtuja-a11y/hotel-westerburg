@@ -37,3 +37,13 @@ add_action(
 		}
 	}
 );
+
+// Remove the block-editor (Gutenberg) global styles from the front end (~11 KB inline CSS per page).
+// The site is built with Elementor: no page uses block classes or --wp-- variables, and the theme
+// already sets body margin 0 (checked 2026-10-29). WordPress can enqueue them again in the footer,
+// so they are removed in both places. Undo: delete this block and deploy.
+function hotel_westerburg_dequeue_global_styles() {
+	wp_dequeue_style( 'global-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'hotel_westerburg_dequeue_global_styles', 100 );
+add_action( 'wp_footer', 'hotel_westerburg_dequeue_global_styles', 2 );
