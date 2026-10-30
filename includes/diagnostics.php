@@ -15,6 +15,11 @@ add_action(
 		if ( ! wp_doing_ajax() || ! isset( $_REQUEST['action'] ) || 'elementor_ajax' !== $_REQUEST['action'] || ! current_user_can( 'edit_posts' ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			return;
 		}
+		// Elementor saves run with only 128M here; the Galerie save ran out of memory
+		// (30.10.2026, class-wpdb.php). Allow the server's 256M for editor saves only.
+		if ( wp_convert_hr_to_bytes( ini_get( 'memory_limit' ) ) < 256 * MB_IN_BYTES ) {
+			ini_set( 'memory_limit', '256M' ); // phpcs:ignore WordPress.PHP.IniSet.memory_limit_Disallowed
+		}
 		register_shutdown_function(
 			function () {
 				$error = error_get_last();
