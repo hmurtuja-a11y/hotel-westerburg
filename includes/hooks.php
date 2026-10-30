@@ -61,3 +61,19 @@ add_action(
 		header( 'Referrer-Policy: strict-origin-when-cross-origin' );
 	}
 );
+
+// The WhatsApp icon in the footer (template 168, icon list 6ef56cd) is an uploaded SVG that
+// Elementor prints inline, including its own <title>Whatsapp-color</title>. A second <title>
+// in the page confuses SEO crawlers; the link text already names WhatsApp. Strip <title> and
+// <desc> from inline SVGs in icon-list widgets only.
+add_filter(
+	'elementor/widget/render_content',
+	function ( $content, $widget ) {
+		if ( 'icon-list' === $widget->get_name() && false !== strpos( $content, '<svg' ) ) {
+			$content = preg_replace( '#(<svg[^>]*>)\s*<title>[^<]*</title>\s*(<desc>[^<]*</desc>)?#i', '$1', $content );
+		}
+		return $content;
+	},
+	10,
+	2
+);
