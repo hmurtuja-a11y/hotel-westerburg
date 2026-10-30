@@ -47,3 +47,17 @@ function hotel_westerburg_dequeue_global_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'hotel_westerburg_dequeue_global_styles', 100 );
 add_action( 'wp_footer', 'hotel_westerburg_dequeue_global_styles', 2 );
+
+// Basic security headers on front-end pages, and hide the PHP version (X-Powered-By).
+// No Content-Security-Policy and no HSTS on purpose: a CSP could block tracking scripts,
+// HSTS is hard to undo. Referrer-Policy is the browser default, so ad attribution is unchanged.
+// Undo: delete this block and deploy.
+add_action(
+	'send_headers',
+	function () {
+		header_remove( 'X-Powered-By' );
+		header( 'X-Content-Type-Options: nosniff' );
+		header( 'X-Frame-Options: SAMEORIGIN' );
+		header( 'Referrer-Policy: strict-origin-when-cross-origin' );
+	}
+);

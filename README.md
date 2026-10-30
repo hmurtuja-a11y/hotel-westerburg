@@ -13,6 +13,7 @@ hotel-westerburg/
 │   ├── assets.php            PHP   Tells WordPress to load the CSS and JS files below.
 │   ├── seo.php               PHP   Hides listed pages from Google (noindex, sitemap, robots.txt).
 │   ├── redirects.php         PHP   301 from upper-case page URLs to the lower-case page (/Raeumlichkeiten/ -> /raeumlichkeiten/).
+│   ├── diagnostics.php       PHP   TEMPORARY: records the fatal error of an Elementor save (Galerie). Remove when solved.
 │   └── index.php             PHP   Empty guard file (stops folder browsing). Don't edit.
 ├── assets/                         Files sent to the visitor's browser.
 │   ├── css/frontend.css      CSS   Custom styles for the site (overrides theme / Elementor).
